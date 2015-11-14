@@ -1,6 +1,7 @@
 const app = require('express')();
 const Twitter = require('twitter-node-client').Twitter;
 const washTweet = require('./washTweet');
+const sentimentCalculator = require('./sentiment');
 
 const config = {
    consumerKey: 'LTXOmvPl8OetOsCXlnA',
