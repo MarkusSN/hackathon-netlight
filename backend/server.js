@@ -13,8 +13,8 @@ const config = {
 
 const twitter = new Twitter(config);
 
-app.post('/tweet', (req, res) => {
-  twitter.getSearch({ q: req.body, count: 10 }, success, success.bind(res));
+app.get('/tweet/:query', (req, res) => {
+  twitter.getSearch({ q: req.params.query, count: 10 }, success, success.bind(res));
 });
 
 app.listen(8080);
