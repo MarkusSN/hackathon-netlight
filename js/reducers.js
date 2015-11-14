@@ -2,8 +2,7 @@
 const {
   SET_HASHTAGS,
   RECEIVE_TWEETS,
-  START_FETCHING,
-  AWAIT_FETCH
+  START_FETCHING
 } = require('./actions');
 
 const initalState = {
@@ -28,7 +27,6 @@ const tweets = (tweets, action) => {
 
 const fetchStatus = (fetchStatus, action) => {
   switch (action.type) {
-    case AWAIT_FETCH: return 'awaiting_fetch';
     case START_FETCHING: return 'fetching';
     case RECEIVE_TWEETS: return 'not_fetching';
     default: return fetchStatus;

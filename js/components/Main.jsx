@@ -2,7 +2,6 @@ const HashTagsInput = require('./HashTagsInput');
 const { setHashTags, startFetching, receiveTweets, awaitFetch } = require('../actionCreators');
 const Speedometer = require('./Speedometer');
 const Tweets = require('./Tweets');
-const { promiseTweets } = require('../restMethods');
 
 class Main extends React.Component {
 
@@ -10,14 +9,12 @@ class Main extends React.Component {
     super(props);
   }
 
-
 	render() {
-    const { hashTags, tweets, dispatch } = this.props;
-    const { fetchStatus } = this.state;
+    const { hashTags, tweets, dispatch, fetchStatus } = this.props;
 		return (
 			<div>
         <HashTagsInput hashTags={hashTags} hashTagsOnChange={(hts) => dispatch(setHashTags(hts))} />
-        <button disabled={fetchStatus !== 'not_fetching'} onClick={}>Hent</button>
+        <button onClick={() => startFetching(hashTags)}>Hent</button>
         <Speedometer />
         <Tweets tweets={tweets} />
 			</div>

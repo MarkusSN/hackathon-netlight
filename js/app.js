@@ -1,14 +1,16 @@
 require('babel-polyfill');
 window.React = require('react');
 window.ReactDOM = require('react-dom');
-let Provider = require('react-redux').Provider;
-let createStore = require('redux').createStore;
-let reducer = require('./reducers');
-let Main = React.createFactory(require('./components/Main'));
+const Provider = require('react-redux').Provider;
+const { createStore, applyMiddleware } = require('redux');
+const thunk = require('redux-thunk');
+const reducer = require('./reducers');
+const Main = React.createFactory(require('./components/Main'));
 
 const targetEl = document.getElementById('mainContent');
 
-let store = createStore(reducer);
+let createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+let store = createStoreWithMiddleware(reducer);
 
 ReactDOM.render(
   <Provider store={store}>

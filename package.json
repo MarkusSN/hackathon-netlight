@@ -50,6 +50,7 @@
     }
   },
   "dependencies": {
-    "babel-polyfill": "^6.1.19"
+    "babel-polyfill": "^6.1.19",
+    "redux-thunk": "^1.0.0"
   }
 }

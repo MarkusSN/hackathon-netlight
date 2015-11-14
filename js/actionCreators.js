@@ -1,4 +1,5 @@
-const { SET_HASHTAGS, START_FETCHING, AWAIT_FETCH } = require('./actions');
+const { SET_HASHTAGS, START_FETCHING } = require('./actions');
+const { promiseTweets } = require('./restMethods');
 
 module.exports = {
 
@@ -6,12 +7,13 @@ module.exports = {
     return { type: SET_HASHTAGS, hashTags };
   },
 
-  awaitFetch() {
-    return { type: AWAIT_FETCH };
-  },
-
-  startFetching() {
-    return { type: START_FETCHING };
+  startFetching(hashTags) {
+    return (dispatch) => {
+      return promiseTweets(hashTags).then(
+        (tweet) => dispatch(receiveTweets(tweets)),
+        (fail) => console.log(fail)
+      );
+    };
   },
 
   receiveTweets(tweets) {
