@@ -1,5 +1,4 @@
-const express = require('express');
-const app = express();
+const app = require('express')();
 const Twitter = require('twitter-node-client').Twitter;
 const washTweet = require('./washTweet');
 
