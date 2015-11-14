@@ -14,7 +14,7 @@ class Main extends React.Component {
 		return (
 			<div>
         <HashTagsInput hashTags={hashTags} hashTagsOnChange={(hts) => dispatch(setHashTags(hts))} />
-        <button onClick={() => startFetching(hashTags)}>Hent</button>
+        <button onClick={() => dispatch(startFetching(hashTags))}>Hent</button>
         <Speedometer />
         <Tweets tweets={tweets} />
 			</div>
