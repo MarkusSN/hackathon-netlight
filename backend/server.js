@@ -20,7 +20,7 @@ const config = {
 const twitter = new Twitter(config);
 
 app.get('/tweet/:query', (req, res) => {
-  twitter.getSearch({ q: req.params.query, count: 10 }, success, success.bind(res));
+  twitter.getSearch({ q: req.params.query, count: 100, lang: 'en' }, success, success.bind(res));
 });
 
 app.listen(8080);
