@@ -1,0 +1,17 @@
+{
+  "name": "node-backend",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "twitter-node-client": "0.0.6"
+  },
+  "devDependencies": {
+    "express": "^4.13.3"
+  }
+}
