@@ -1,4 +1,6 @@
 require('babel-polyfill');
+require('whatwg-fetch');
+
 window.React = require('react');
 window.ReactDOM = require('react-dom');
 const Provider = require('react-redux').Provider;
