@@ -1,19 +1,44 @@
 /* eslint-disable no-shadow */
-const { DO_ACTION  } = require('./actions');
+const {
+  SET_HASHTAGS,
+  RECEIVE_TWEETS,
+  START_FETCHING,
+  AWAIT_FETCH
+} = require('./actions');
 
 const initalState = {
-  someState: {}
+  fetchStatus: 'not_fetching',
+  hashTags: ['', ''],
+  tweets: [[], []]
 };
 
-const stateReducer = (someState, action) => {
+const hashTags = (hashTags, action) => {
   switch (action.type) {
-    case DO_ACTION: return someOtherState;
-    default: return someState;
+    case SET_HASHTAGS: return action.hashTags;
+    default: return hashTags;
+  }
+};
+
+const tweets = (tweets, action) => {
+  switch (action.type) {
+    case RECEIVE_TWEETS: return action.tweets;
+    default: return tweets;
+  }
+};
+
+const fetchStatus = (fetchStatus, action) => {
+  switch (action.type) {
+    case AWAIT_FETCH: return 'awaiting_fetch';
+    case START_FETCHING: return 'fetching';
+    case RECEIVE_TWEETS: return 'not_fetching';
+    default: return fetchStatus;
   }
 };
 
 module.exports = function(state = initalState, action) {
   return {
-    someState: stateReducer(state.someState, action),
+    fetchStatus: fetchStatus(state.fetchStatus, action),
+    hashTags: hashTags(state.hashTags, action),
+    tweets: tweets(state.tweets, action)
   };
 };
