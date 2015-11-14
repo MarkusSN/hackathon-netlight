@@ -8,7 +8,7 @@ class TweetList extends React.Component {
     const { tweets } = this.props;
     return (
       <ul>
-        {tweets.map((tweet) => <li>{tweet.text}</li>)}
+        {tweets.map((tweet) => <li key={tweet.id}>{tweet.text}</li>)}
       </ul>
     );
   }
