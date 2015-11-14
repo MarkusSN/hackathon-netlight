@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const Twitter = require('twitter-node-client').Twitter;
+const washTweet = require('./washTweet');
 
 const config = {
    consumerKey: 'LTXOmvPl8OetOsCXlnA',
@@ -23,17 +24,4 @@ const success = function (data) {
   const statuses = JSON.parse(data).statuses;
   statuses.forEach( (tweet, i) => console.log(i + ': ' + tweet.text));
   this.send(statuses.map(washTweet));
-};
-
-const washTweet = (tweet) => {
-  return {
-    id: tweet.id,
-    text: tweet.text,
-    user: {
-      id: tweet.user.id,
-      name: tweet.user.name,
-      twitterHandle: tweet.user.screen_name,
-      profileImageUrl: tweet.user.profile_image_url
-    }
-  };
 };
