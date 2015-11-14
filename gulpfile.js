@@ -19,15 +19,15 @@ const errorHandler = {
 };
 
 var paths = {
-    webroot: "./" + project.webroot + "/"
+
 };
 
 const outputFolder = join(paths.webroot + "/js");
 
 
-paths.concatCssDest = paths.webroot + "css/";
-paths.concatJsDest = paths.webroot + "js/site.min.js";
-paths.app = paths.webroot + "js/app.min.js";
+paths.concatCssDest = "dist/css/";
+paths.concatJsDest = "js/site.min.js";
+paths.app = "js/app.min.js";
 paths.mainStyle =  "./Style/Main.less";
 paths.reactRoot = './JS/React/App.js';
 paths.watchReact = './JS/React/**/*.jsx';
@@ -69,5 +69,3 @@ gulp.task('less', function () {
 gulp.task('watchLess', function() {
     gulp.watch(paths.lessFiles, ['less']);
 });
-
-
