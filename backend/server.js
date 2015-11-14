@@ -23,5 +23,11 @@ const success = function (data) {
   console.log(data.statuses);
   const statuses = JSON.parse(data).statuses;
   statuses.forEach( (tweet, i) => console.log(i + ': ' + tweet.text));
-  this.send(statuses.map(washTweet));
+  const sentiments = sentimentCalculator(statuses.map(status => status.text));
+  sentiments.then( sentimentScores => {
+    this.send(statuses
+      .map(washTweet)
+      .map( (tweet, index) => Object.assign({sentimentScore: sentimentScores[index]}, tweet))
+    );
+  });
 };
