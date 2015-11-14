@@ -28,15 +28,28 @@
     "watchify": "^3.6.0",
     "object-assign": "4.0.1",
     "gulp-less": "^3.0.3",
-    "gulp-plumber":"1.0.1"
+    "gulp-plumber": "1.0.1"
   },
   "scripts": {
     "start": "watchify -o js/bundle.js -v -d js/app.js --extension=.jsx"
   },
   "browserify": {
-    "transform": [["babelify", { "presets": ["es2015", "react"] }]],
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react"
+          ]
+        }
+      ]
+    ],
     "options": {
       "debug": true
     }
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.1.19"
   }
 }

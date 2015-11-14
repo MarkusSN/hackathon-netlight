@@ -1,3 +1,4 @@
+require('babel-polyfill');
 window.React = require('react');
 window.ReactDOM = require('react-dom');
 let Provider = require('react-redux').Provider;
