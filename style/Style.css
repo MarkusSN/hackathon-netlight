@@ -13,6 +13,7 @@ body {
     margin: 0 auto;
     background-color: #eaeaea;
     padding: 20px;
+    text-align: center;
 }
 
 input {
@@ -34,4 +35,21 @@ input {
 .big-vs-text{
     text-transform: uppercase;
     font-size: 35px;    
+}
+
+.get-tweets-button {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #00bfff;
+    color: #fff;
+    border: none;
+    width: 30%;
+    min-width: 225px;
+    font-size: 25px;
+}
+
+.get-tweets-button:hover {
+    background-color: #fff;
+    color: #00bfff;
 }
