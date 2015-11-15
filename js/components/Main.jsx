@@ -2,6 +2,7 @@ const HashTagsInput = require('./HashTagsInput');
 const { setHashTags, startFetching, receiveTweets, awaitFetch } = require('../actionCreators');
 const Speedometer = require('./Speedometer');
 const Tweets = require('./Tweets');
+const Spinner = require('./Spinner');
 
 class Main extends React.Component {
 
@@ -21,6 +22,7 @@ class Main extends React.Component {
         <Speedometer text={hashTags[0]} tweets={tweets[0]} />
         <Speedometer text={hashTags[1]} tweets={tweets[1]} />
         <Tweets tweets={tweets} />
+        <Spinner active={fetchStatus === 'fetching'}/>
 			</div>
 		);
 	}
