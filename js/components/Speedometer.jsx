@@ -8,27 +8,36 @@ class Speedometer extends React.Component {
     super(props);
   }
 
-  score(tweets) {
-    if (tweets.length === 0) {
-      return 0;
-    }
-    return tweets.reduce((acc, tweet) => acc + tweet.sentimentScore, 0);
+  shouldComponentUpdate(nextProps) {
+    return this.props.tweets != nextProps.tweets;
   }
 
+  scoreInPercent(tweets) {
+    var avg = tweets.reduce((acc, tweet) => acc + tweet.sentimentScore, 0) / tweets.length;
+    return Math.floor(avg * 100);
+   }
+
   render() {
-    let score = this.score(this.props.tweets);
-    return <Highcharts className="col-lg-1-2 col-1-1" ref='highcharts' config={getConfig(score)} />;
+    const { tweets, text } = this.props;
+    if (tweets.length === 0) {
+      return <div />;
+    }
+    let score = this.scoreInPercent(tweets);
+    return <Highcharts className="col-lg-1-2 col-1-1" ref='highcharts' config={getConfig(score, text)} />;
   }
 
 }
 
 module.exports = Speedometer;
 
-const getConfig = (score) => ({
+const getConfig = (score, text) => ({
   chart: {
+    marginTop: -70,
+    height: 300,
+    backgroundColor: 'rgba(255, 255, 255, 0)',
     type: 'solidgauge'
   },
-  title: null,
+  title: { text, y: 30, style: { fontSize: 36 } },
   pane: {
     center: ['50%', '85%'],
     size: '100%',
@@ -44,10 +53,12 @@ const getConfig = (score) => ({
   tooltip: { enabled: false },
   yAxis: {
     stops: [
-      [0.1, '#55BF3B'], // green
+      [0.1, '#DF5353'], // red
       [0.5, '#DDDF0D'], // yellow
-      [0.9, '#DF5353'] // red
+      [0.9, '#55BF3B'] // green
     ],
+    min: 0,
+    max: 100,
     lineWidth: 0,
     minorTickInterval: null,
     tickPixelInterval: 400,
@@ -69,10 +80,11 @@ const getConfig = (score) => ({
     data: [score], // SCORE GOES HERE
     dataLabels: {
       format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-      ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+      ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}%</span><br/>' +
       '<span style="font-size:12px;color:silver">Positivity</span></div>'
     },
     tooltip: {
+      valueDecimals: 2,
       valueSuffix: ' Positivity'
     }
   }]

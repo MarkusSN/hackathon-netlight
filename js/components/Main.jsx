@@ -18,8 +18,8 @@ class Main extends React.Component {
         <div className="col-1-1">
                 <button className="get-tweets-button" onClick={() => dispatch(startFetching(hashTags))}>Hent</button>
         </div>
-        <Speedometer tweets={tweets[0]} />
-        <Speedometer tweets={tweets[1]} />
+        <Speedometer text={hashTags[0]} tweets={tweets[0]} />
+        <Speedometer text={hashTags[1]} tweets={tweets[1]} />
         <Tweets tweets={tweets} />
 			</div>
 		);
