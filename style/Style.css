@@ -80,6 +80,15 @@ h3, p {
     height: 90px;
 }
 
+.twitter-handle {
+  text-decoration: none;
+  color: #555;
+}
+
+.twitter-handle:hover {
+  text-decoration: underline;
+}
+
 .spinner-container.active {
   background-color: rgba(100, 100, 100, 0.6);
   position: fixed;

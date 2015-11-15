@@ -27,7 +27,7 @@ class TweetList extends React.Component {
                 <img className="tweet-sentiment-image" src={tweet.image} alt="" />
             </div>
             <div className="col-3-4">
-                <h3>{tweet.user.twitterHandle}</h3>
+                <h3><a href={`https://twitter.com/${tweet.user.twitterHandle}`} className="twitter-handle" target="_blank">{'@' + tweet.user.twitterHandle}</a></h3>
                 <p>{tweet.text}</p>
             </div>
 
