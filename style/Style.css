@@ -10,7 +10,7 @@ h1 {
 }
 
 body {
-    background-color: #888888;
+    background-color: #cccccc;
     padding: 0;
     margin: 0;
 }
@@ -21,6 +21,8 @@ body {
     padding: 20px;
     text-align: center;
     display: block;
+    border: 1px solid black;
+    border-top: 0;
 }
 
 input {
@@ -41,7 +43,7 @@ input {
 
 .big-vs-text{
     text-transform: uppercase;
-    font-size: 35px;    
+    font-size: 35px;
 }
 
 .get-tweets-button {
