@@ -17,7 +17,7 @@ class Speedometer extends React.Component {
 
   render() {
     let score = this.score(this.props.tweets);
-    return <Highcharts ref='highcharts' config={getConfig(score)} />;
+    return <Highcharts className="col-lg-1-2 col-1-1" ref='highcharts' config={getConfig(score)} />;
   }
 
 }
