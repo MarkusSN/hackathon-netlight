@@ -9,11 +9,11 @@ body {
 }
 
 #mainContent {
-    max-width: 75%;
     margin: 0 auto;
     background-color: #eaeaea;
     padding: 20px;
     text-align: center;
+    display: block;
 }
 
 input {
@@ -52,4 +52,20 @@ input {
 .get-tweets-button:hover {
     background-color: #fff;
     color: #00bfff;
+}
+
+.tweet-container {
+    list-style: none;
+    border: 2px solid #fff;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+h3, p {
+    margin: 0;
+}
+
+.tweet-sentiment-image {
+    width: 90px;
+    height: 90px;
 }
