@@ -15,7 +15,7 @@ class Main extends React.Component {
 			<div>
         <h1>What does Twitter love more??</h1>
         <HashTagsInput hashTags={hashTags} hashTagsOnChange={(hts) => dispatch(setHashTags(hts))} />
-        <div className="col-1-1">
+        <div className="col-1-1st">
                 <button className="get-tweets-button" onClick={() => dispatch(startFetching(hashTags))}>Hent</button>
         </div>
         <Speedometer text={hashTags[0]} tweets={tweets[0]} />
