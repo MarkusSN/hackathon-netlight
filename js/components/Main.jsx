@@ -21,7 +21,7 @@ class Main extends React.Component {
     const { hashTags, tweets, dispatch, fetchStatus } = this.props;
 		return (
 			<div>
-        <h1>What does Twitter love more??</h1>
+        <h1>Tweet luv</h1>
         <HashTagsInput onEnterClick={() => dispatch(this.fetch(fetchStatus, hashTags))} hashTags={hashTags} hashTagsOnChange={(hts) => dispatch(setHashTags(hts))} />
         <div className="col-1-1">
                 <button className="get-tweets-button" onClick={() => dispatch(this.fetch(fetchStatus, hashTags))}>Hent</button>
